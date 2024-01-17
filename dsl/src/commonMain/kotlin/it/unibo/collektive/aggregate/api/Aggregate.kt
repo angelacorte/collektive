@@ -32,6 +32,7 @@ interface Aggregate<ID : Any> {
      * network and the result of the computation passed as relative local values.
      */
     fun <Initial> exchange(
+        strictSemantic: Boolean = false,
         initial: Initial,
         body: (Field<ID, Initial>) -> Field<ID, Initial>,
     ): Field<ID, Initial>
@@ -48,6 +49,7 @@ interface Aggregate<ID : Any> {
      * ```
      */
     fun <Initial, Return> exchanging(
+        strictSemantic: Boolean = false,
         initial: Initial,
         body: YieldingScope<Field<ID, Initial>, Field<ID, Return>>,
     ): Field<ID, Return>

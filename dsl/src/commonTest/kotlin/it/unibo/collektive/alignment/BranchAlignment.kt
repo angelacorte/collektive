@@ -84,7 +84,7 @@ class BranchAlignment : StringSpec({
             .map { NetworkImplTest(nm, it) to it }
             .map { (net, id) ->
                 aggregate(id, net) {
-                    exchange(0) { body(it) }
+                    exchange(initial = 0) { body(it) }
                 }
             }
     }

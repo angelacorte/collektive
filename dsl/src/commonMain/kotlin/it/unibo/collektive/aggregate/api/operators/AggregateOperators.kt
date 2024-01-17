@@ -62,7 +62,7 @@ fun <ID : Any, Initial, Return> Aggregate<ID>.sharing(
 ): Return {
     val context = YieldingContext<Initial, Return>()
     var yieldingContext: Option<YieldingContext.YieldingResult<Initial, Return>> = none()
-    exchange(initial) { initialField ->
+    exchange(initial = initial) { initialField ->
         initialField.map { _ ->
             transform(context, initialField).also { context -> yieldingContext = context.some() }.toSend
         }

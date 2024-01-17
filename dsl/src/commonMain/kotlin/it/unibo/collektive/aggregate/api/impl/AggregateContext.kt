@@ -41,10 +41,11 @@ internal class AggregateContext<ID : Any>(
 
     private fun <T> newField(localValue: T, others: Map<ID, T>): Field<ID, T> = Field(localId, localValue, others)
 
-    override fun <X> exchange(initial: X, body: (Field<ID, X>) -> Field<ID, X>): Field<ID, X> =
-        exchanging(initial) { field -> body(field).run { yielding { this } } }
+    override fun <X> exchange(strictSemantic: Boolean, initial: X, body: (Field<ID, X>) -> Field<ID, X>): Field<ID, X> =
+        exchanging(strictSemantic, initial) { field -> body(field).run { yielding { this } } }
 
     override fun <Init, Ret> exchanging(
+        strictSemantic: Boolean,
         initial: Init,
         body: YieldingScope<Field<ID, Init>, Field<ID, Ret>>,
     ): Field<ID, Ret> {
@@ -53,7 +54,10 @@ internal class AggregateContext<ID : Any>(
         val subject = newField(previous, messages)
         val context = YieldingContext<Field<ID, Init>, Field<ID, Ret>>()
         return body(context, subject).also {
-            val message = SingleOutboundMessage(it.toSend.localValue, it.toSend.excludeSelf())
+            val message = SingleOutboundMessage(
+                if (strictSemantic) initial else it.toSend.localValue,
+                it.toSend.excludeSelf(),
+            )
             val path = stack.currentPath()
             check(!toBeSent.messages.containsKey(path)) {
                 """

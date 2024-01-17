@@ -25,7 +25,7 @@ class ExchangeTest : StringSpec({
 
     "First time exchange should return the initial value" {
         val result = aggregate(0) {
-            val res = exchange(1, increaseOrDouble)
+            val res = exchange(initial = 1, body = increaseOrDouble)
             res.localValue shouldBe 2
         }
         result.toSend shouldBe OutboundMessage(
@@ -40,8 +40,8 @@ class ExchangeTest : StringSpec({
         // Device 1
         val testNetwork1 = NetworkImplTest(nm, 1)
         val resultDevice1 = aggregate(1, testNetwork1) {
-            val res1 = exchange(1, increaseOrDouble)
-            val res2 = exchange(2, increaseOrDouble)
+            val res1 = exchange(initial = 1, body = increaseOrDouble)
+            val res2 = exchange(initial = 2, body = increaseOrDouble)
             testNetwork1.read() shouldHaveSize 0
             res1.localValue shouldBe 2
             res2.localValue shouldBe 3
@@ -58,8 +58,8 @@ class ExchangeTest : StringSpec({
         // Device 2
         val testNetwork2 = NetworkImplTest(nm, 2)
         val resultDevice2 = aggregate(2, testNetwork2) {
-            val res1 = exchange(3, increaseOrDouble)
-            val res2 = exchange(4, increaseOrDouble)
+            val res1 = exchange(initial = 3, body = increaseOrDouble)
+            val res2 = exchange(initial = 4, body = increaseOrDouble)
 
             res1.localValue shouldBe 6
             res2.localValue shouldBe 5
@@ -82,8 +82,8 @@ class ExchangeTest : StringSpec({
         // Device 3
         val testNetwork3 = NetworkImplTest(nm, 3)
         val resultDevice3 = aggregate(3, testNetwork3) {
-            val res1 = exchange(5, increaseOrDouble)
-            val res2 = exchange(6, increaseOrDouble)
+            val res1 = exchange(initial = 5, body = increaseOrDouble)
+            val res2 = exchange(initial = 6, body = increaseOrDouble)
 
             res1.localValue shouldBe 10
             res2.localValue shouldBe 7
@@ -112,7 +112,7 @@ class ExchangeTest : StringSpec({
 
     "Exchange can yield a result but return a different value" {
         val result = aggregate(0) {
-            val xcRes = exchanging(1) {
+            val xcRes = exchanging(initial = 1) {
                 val fieldResult = it + 1
                 fieldResult.yielding { fieldResult.map { value -> "return: $value" } }
             }
@@ -126,7 +126,7 @@ class ExchangeTest : StringSpec({
 
     "Exchange can yield a result of nullable values" {
         val result = aggregate(0) {
-            val xcRes = exchanging(1) {
+            val xcRes = exchanging(initial = 1) {
                 val fieldResult = it + 1
                 fieldResult.yielding { fieldResult.map { value -> value.takeIf { value > 10 } } }
             }
@@ -136,5 +136,8 @@ class ExchangeTest : StringSpec({
             0,
             mapOf(exchangingPath to SingleOutboundMessage(2)),
         )
+    }
+
+    "exchange with strict semantic" {
     }
 })

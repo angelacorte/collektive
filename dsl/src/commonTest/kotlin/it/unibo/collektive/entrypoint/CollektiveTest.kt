@@ -22,16 +22,16 @@ class CollektiveTest : StringSpec({
     }
 
     val computeFunctionDevice0: Aggregate<Int>.() -> Int = {
-        exchange(initV2, increaseOrDouble).localValue
+        exchange(initial = initV2, body = increaseOrDouble).localValue
     }
 
-    fun Aggregate<Int>.computeFunctionDevice1(): Int = exchange(initV3, increaseOrDouble).localValue
+    fun Aggregate<Int>.computeFunctionDevice1(): Int = exchange(initial = initV3, body = increaseOrDouble).localValue
 
     "One Collektive device with cycle() as entrypoint should work fine" {
         val networkManager = NetworkManager()
         val network0 = NetworkImplTest(networkManager, id0)
         val collectiveDevice = Collektive(id0, network0) {
-            exchange(initV1, increaseOrDouble).localValue
+            exchange(initial = 1, body = increaseOrDouble).localValue
         }
 
         val result = collectiveDevice.cycle()
@@ -42,7 +42,7 @@ class CollektiveTest : StringSpec({
         val networkManager = NetworkManager()
         val network0 = NetworkImplTest(networkManager, id0)
         val collectiveDevice = Collektive(id0, network0) {
-            exchange(initV1, increaseOrDouble).localValue
+            exchange(initial = initV1, body = increaseOrDouble).localValue
         }
 
         val result = collectiveDevice.cycleWhile { it.result < 10 }
@@ -99,8 +99,8 @@ class CollektiveTest : StringSpec({
         val network0 = NetworkImplTest(networkManager, id0)
         val network1 = NetworkImplTest(networkManager, id1)
 
-        val collektiveDevice0 = Collektive(id0, network0) { exchange(1, increaseOrDouble).localValue }
-        val collektiveDevice1 = Collektive(id1, network1) { exchange(2, increaseOrDouble).localValue }
+        val collektiveDevice0 = Collektive(id0, network0) { exchange(initial = 1, body = increaseOrDouble).localValue }
+        val collektiveDevice1 = Collektive(id1, network1) { exchange(initial = 2, body = increaseOrDouble).localValue }
 
         // from its initial value 1, apply increaseOrDouble, then sends to device1
         collektiveDevice0.cycle() shouldBe 2
