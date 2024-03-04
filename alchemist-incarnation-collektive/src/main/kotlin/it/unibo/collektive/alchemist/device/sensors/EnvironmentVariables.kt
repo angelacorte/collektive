@@ -1,7 +1,7 @@
 package it.unibo.collektive.alchemist.device.sensors
 
 /**
- * Interface for a device that can sense the environment.
+ * Interface for generic environment variables.
  */
 interface LocalSensing {
     /**
