@@ -3,14 +3,29 @@ package it.unibo.collektive.alchemist.device.sensors
 /**
  * Interface for generic environment variables.
  */
-interface LocalSensing {
+interface EnvironmentVariables {
     /**
-     * Sense a molecule given its [name] and returns its value.
+     * Get the value of the variable with the given [name].
      */
-    fun <T> sense(name: String): T
+    operator fun <T> get(name: String): T
 
     /**
-     * Sense a molecule given its [name] and returns its value, or [default] if the molecule is not present.
+     * Get the value of the variable with the given [name], or `null` if the variable is not defined.
      */
-    fun <T> senseOrElse(name: String, default: T): T
+    fun <T> getOrNull(name: String): T?
+
+    /**
+     * Get the value of the variable with the given [name], or [default] if the variable is not defined.
+     */
+    fun <T> getOrDefault(name: String, default: T): T
+
+    /**
+     * Check if the variable with the given [name] is defined.
+     */
+    fun isDefined(name: String): Boolean
+
+    /**
+     * Set the value of the variable with the given [name] to [value].
+     */
+    operator fun <T> set(name: String, value: T): T
 }
