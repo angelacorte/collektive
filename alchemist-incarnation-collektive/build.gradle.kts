@@ -8,7 +8,7 @@ kotlinJvm {
             dependencies {
                 implementation(project(":dsl"))
                 implementation(kotlin("reflect"))
-                implementation(libs.bundles.alchemist)
+                implementation(libs.alchemist)
                 implementation(libs.caffeine)
             }
         }
