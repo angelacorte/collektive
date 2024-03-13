@@ -1,0 +1,47 @@
+Test started at: 25-02-2024 19:28:52 - Finished at 25-02-2024 19:29:32
+Results for simulation time 100.0 s:
+SimulationType(incarnation=collektive, testType=branching, cycle=0, nodes=200) Results(duration=151, steps=20001)
+
+SimulationType(incarnation=collektive, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=1048, steps=84301)
+
+SimulationType(incarnation=collektive, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=87, steps=20001)
+
+SimulationType(incarnation=collektive, testType=gradient, cycle=0, nodes=200) Results(duration=440, steps=20001)
+
+SimulationType(incarnation=collektive, testType=neighborCounter, cycle=0, nodes=201) Results(duration=345, steps=40201)
+
+SimulationType(incarnation=protelis, testType=branching, cycle=0, nodes=200) Results(duration=422, steps=40001)
+
+SimulationType(incarnation=protelis, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=5543, steps=168601)
+
+SimulationType(incarnation=protelis, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=268, steps=40001)
+
+SimulationType(incarnation=protelis, testType=gradient, cycle=0, nodes=200) Results(duration=682, steps=40001)
+
+SimulationType(incarnation=protelis, testType=neighborCounter, cycle=0, nodes=200) Results(duration=354, steps=40001)
+
+SimulationType(incarnation=scafi, testType=branching, cycle=0, nodes=200) Results(duration=937, steps=40001)
+
+SimulationType(incarnation=scafi, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=3903, steps=168601)
+
+SimulationType(incarnation=scafi, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=964, steps=40001)
+
+SimulationType(incarnation=scafi, testType=gradient, cycle=0, nodes=200) Results(duration=1026, steps=40001)
+
+SimulationType(incarnation=scafi, testType=neighborCounter, cycle=0, nodes=200) Results(duration=965, steps=40001)
+Average:
+(scafi, fieldEvolution) 964.0
+(protelis, fieldEvolution) 268.0
+(collektive, fieldEvolution) 87.0
+(scafi, neighborCounter) 965.0
+(protelis, neighborCounter) 354.0
+(collektive, neighborCounter) 345.0
+(scafi, branching) 937.0
+(protelis, branching) 422.0
+(collektive, branching) 151.0
+(scafi, gradient) 1026.0
+(protelis, gradient) 682.0
+(collektive, gradient) 440.0
+(scafi, channelWithObstacles) 3903.0
+(protelis, channelWithObstacles) 5543.0
+(collektive, channelWithObstacles) 1048.0

@@ -1,0 +1,15 @@
+scafi,fieldEvolution,5015.0,300.0
+protelis,fieldEvolution,888.0,300.0
+collektive,fieldEvolution,156.0,300.0
+scafi,neighborCounter,8651.0,300.0
+protelis,neighborCounter,2748.0,300.0
+collektive,neighborCounter,2503.0,300.0
+scafi,branching,7675.0,300.0
+protelis,branching,1693.0,300.0
+collektive,branching,492.0,300.0
+scafi,gradient,11606.0,300.0
+protelis,gradient,6652.0,300.0
+collektive,gradient,4176.0,300.0
+scafi,channelWithObstacles,62789.0,300.0
+protelis,channelWithObstacles,56848.0,300.0
+collektive,channelWithObstacles,10325.0,300.0

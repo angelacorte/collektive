@@ -1,0 +1,48 @@
+Test started at: 25-02-2024 23:11:17 - Finished at 25-02-2024 23:12:28
+Results for simulation time 100.0 s:
+SimulationType(incarnation=collektive, testType=branching, cycle=0, nodes=200) Results(duration=170, steps=20001)
+SimulationType(incarnation=collektive, testType=branching, cycle=1, nodes=200) Results(duration=111, steps=20001)
+SimulationType(incarnation=collektive, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=1257, steps=84301)
+SimulationType(incarnation=collektive, testType=channelWithObstacles, cycle=1, nodes=843) Results(duration=1198, steps=84301)
+SimulationType(incarnation=collektive, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=103, steps=20001)
+SimulationType(incarnation=collektive, testType=fieldEvolution, cycle=1, nodes=200) Results(duration=69, steps=20001)
+SimulationType(incarnation=collektive, testType=gradient, cycle=0, nodes=200) Results(duration=417, steps=20001)
+SimulationType(incarnation=collektive, testType=gradient, cycle=1, nodes=200) Results(duration=361, steps=20001)
+SimulationType(incarnation=collektive, testType=neighborCounter, cycle=0, nodes=201) Results(duration=363, steps=40201)
+SimulationType(incarnation=collektive, testType=neighborCounter, cycle=1, nodes=201) Results(duration=260, steps=40201)
+SimulationType(incarnation=protelis, testType=branching, cycle=0, nodes=200) Results(duration=361, steps=40001)
+SimulationType(incarnation=protelis, testType=branching, cycle=1, nodes=200) Results(duration=205, steps=40001)
+SimulationType(incarnation=protelis, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=5383, steps=168601)
+SimulationType(incarnation=protelis, testType=channelWithObstacles, cycle=1, nodes=843) Results(duration=5177, steps=168601)
+SimulationType(incarnation=protelis, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=256, steps=40001)
+SimulationType(incarnation=protelis, testType=fieldEvolution, cycle=1, nodes=200) Results(duration=141, steps=40001)
+SimulationType(incarnation=protelis, testType=gradient, cycle=0, nodes=200) Results(duration=618, steps=40001)
+SimulationType(incarnation=protelis, testType=gradient, cycle=1, nodes=200) Results(duration=471, steps=40001)
+SimulationType(incarnation=protelis, testType=neighborCounter, cycle=0, nodes=200) Results(duration=369, steps=40001)
+SimulationType(incarnation=protelis, testType=neighborCounter, cycle=1, nodes=200) Results(duration=253, steps=40001)
+SimulationType(incarnation=scafi, testType=branching, cycle=0, nodes=200) Results(duration=989, steps=40001)
+SimulationType(incarnation=scafi, testType=branching, cycle=1, nodes=200) Results(duration=680, steps=40001)
+SimulationType(incarnation=scafi, testType=channelWithObstacles, cycle=0, nodes=843) Results(duration=3940, steps=168601)
+SimulationType(incarnation=scafi, testType=channelWithObstacles, cycle=1, nodes=843) Results(duration=3747, steps=168601)
+SimulationType(incarnation=scafi, testType=fieldEvolution, cycle=0, nodes=200) Results(duration=991, steps=40001)
+SimulationType(incarnation=scafi, testType=fieldEvolution, cycle=1, nodes=200) Results(duration=419, steps=40001)
+SimulationType(incarnation=scafi, testType=gradient, cycle=0, nodes=200) Results(duration=1124, steps=40001)
+SimulationType(incarnation=scafi, testType=gradient, cycle=1, nodes=200) Results(duration=910, steps=40001)
+SimulationType(incarnation=scafi, testType=neighborCounter, cycle=0, nodes=200) Results(duration=1076, steps=40001)
+SimulationType(incarnation=scafi, testType=neighborCounter, cycle=1, nodes=200) Results(duration=741, steps=40001)
+Average:
+(scafi, fieldEvolution) 705.0
+(protelis, fieldEvolution) 198.0
+(collektive, fieldEvolution) 86.0
+(scafi, neighborCounter) 908.0
+(protelis, neighborCounter) 311.0
+(collektive, neighborCounter) 311.0
+(scafi, branching) 834.0
+(protelis, branching) 283.0
+(collektive, branching) 140.0
+(scafi, gradient) 1017.0
+(protelis, gradient) 544.0
+(collektive, gradient) 389.0
+(scafi, channelWithObstacles) 3843.0
+(protelis, channelWithObstacles) 5280.0
+(collektive, channelWithObstacles) 1227.0

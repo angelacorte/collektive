@@ -23,16 +23,10 @@ deployments:
         concentration: false
       - molecule: target
         concentration: false
-      - in: { type: Rectangle, parameters: [ 83, 36, 10, 150 ] }
+      - in: { type: Rectangle, parameters: [ 83, 36, 10, 170 ] }
         molecule: obstacle
         concentration: true
-      - in: { type: Rectangle, parameters: [ 0, 30, 170, 10 ] }
-        molecule: obstacle
-        concentration: true
-      - in: { type: Rectangle, parameters: [ 5, 160, 80, 10 ] }
-        molecule: obstacle
-        concentration: true
-      - in: { type: Rectangle, parameters: [ 7, 74, 80, 8] }
+      - in: { type: Rectangle, parameters: [ 1, 103, 170, 10 ] }
         molecule: obstacle
         concentration: true
   - type: Point
@@ -47,7 +41,7 @@ deployments:
       - molecule: obstacle
         concentration: false
   - type: Point
-    parameters: [75, 60]
+    parameters: [193, 193]
     programs:
       - *program
     contents:

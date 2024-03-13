@@ -70,7 +70,7 @@ fun String.capitalizeString(): String =
         }
     }
 
-val incarnations = listOf("collektive", "protelis", "scafi")
+val incarnations = listOf("collektive") // "protelis", "scafi"
 incarnations.forEach { incarnation ->
     File(rootProject.rootDir.path + "/collektive-benchmark/src/main/resources/yaml/$incarnation").listFiles()
         ?.filter { it.extension == "yml" }
