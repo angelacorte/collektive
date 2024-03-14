@@ -24,24 +24,19 @@ fun Aggregate<Int>.channelWithObstacles(): Any =
  */
 context(DistanceSensor)
 fun Aggregate<Int>.channel(source: Boolean, destination: Boolean, channelWidth: Double): Boolean {
-    val distancesToSource = gradient(source)
-    val distanceToDestination = gradient(destination)
-    val dBetween = distanceBetween(source, destination)
-    return !((distancesToSource + distanceToDestination).isInfinite() && dBetween.isInfinite()) &&
-        distancesToSource + distanceToDestination <= dBetween + channelWidth
+    require(channelWidth.isFinite() && channelWidth > 0)
+    val toSource = gradient(source)
+    val toDestination = gradient(destination)
+    val sourceToDestination = broadcast(from = source, payload = toDestination)
+    val channel = toSource + toDestination - sourceToDestination
+    return if (channel.isFinite()) channel <= channelWidth else false
 }
 
 /**
- * Compute the distance between the [source] and the [target].
+ * Computes the [gradientCast] from the [from] with the [payload] that is the distance from the [from] to the target.
  */
 context(DistanceSensor)
-fun Aggregate<Int>.distanceBetween(source: Boolean, target: Boolean): Double = broadcast(source, gradient(target))
-
-/**
- * Computes the [gradientCast] from the [source] with the [value] that is the distance from the [source] to the target.
- */
-context(DistanceSensor)
-fun Aggregate<Int>.broadcast(source: Boolean, value: Double): Double = gradientCast(source, value) { it }
+fun Aggregate<Int>.broadcast(from: Boolean, payload: Double): Double = gradientCast(from, payload) { it }
 
 /**
  * Compute the gradient of the aggregate from the [source] to the [target].
